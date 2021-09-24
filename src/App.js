@@ -1,20 +1,35 @@
 import './App.css'
 import Car from './Car/Car'
+import {Component} from 'react'
 
-function App() {
-    return (
-        <div className="App">
-            <h1>Hello world!</h1>
+class App extends Component {
 
-            <Car name="Ford" year={2018}>
-                <p style={{color: 'green'}}>Color</p>
-            </Car>
-            <Car name="Mazda" year={2019}>
-                <p style={{color: 'red'}}>Color</p>
-            </Car>
-            <Car name="Audi" year={2017}/>
-        </div>
-    )
+    state = {
+        cars: [
+            {name: 'Ford', year: 2018},
+            {name: 'Mazda', year: 2015},
+            {name: 'Audi', year: 2013},
+        ],
+        pageTitle: "React components"
+    }
+
+    render() {
+        const divStyle = {
+            textAlign: 'center'
+        }
+
+        const cars = this.state.cars
+
+        return (
+            <div className="App" style={divStyle}>
+                <h1>{this.state.pageTitle}</h1>
+
+                <Car name={cars[0].name} year={cars[0].year}/>
+                <Car name="Mazda" year={2019}/>
+                <Car name="Audi" year={2017}/>
+            </div>
+        )
+    }
 }
 
 export default App
