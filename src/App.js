@@ -5,7 +5,6 @@ import {Component} from 'react'
 class App extends Component {
 
     constructor(props) {
-
         console.log('App constructor')
         super(props)
 
