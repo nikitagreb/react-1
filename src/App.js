@@ -41,7 +41,8 @@ class App extends Component {
 
         return (
             <div className="App" style={divStyle}>
-                <h1>{this.state.pageTitle}</h1>
+                {/*<h1>{this.state.pageTitle}</h1>*/}
+                <h1>{this.props.title}</h1>
                 <button onClick={this.handlerToggleCars}>Toggle cars</button>
 
                 {this.state.showCars
