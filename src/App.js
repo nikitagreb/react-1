@@ -10,18 +10,19 @@ class App extends Component {
             {name: 'Mazda', year: 2015},
             {name: 'Audi', year: 2013},
         ],
-        pageTitle: "React components"
+        pageTitle: "React components",
+        showCars: false
     }
 
-    changeTitleHandler = (newTitle) => {
+    changeTitleHandler = newTitle => {
         this.setState({
             pageTitle: newTitle
         })
     }
 
-    handleInput = (event) => {
+    handlerToggleCars = () => {
         this.setState({
-            pageTitle: event.target.value
+            showCars: !this.state.showCars
         })
     }
 
@@ -30,23 +31,25 @@ class App extends Component {
             textAlign: 'center'
         }
 
-        const cars = this.state.cars
-
         return (
             <div className="App" style={divStyle}>
                 <h1>{this.state.pageTitle}</h1>
-                <input type="text" onChange={this.handleInput}/>
-                <button onClick={this.changeTitleHandler.bind(this, 'Changed!')}>Change title</button>
-                {this.state.cars.map((car, index) => {
-                    return (
-                        <Car
-                            key={index}
-                            name={car.name}
-                            year={car.year}
-                            onChangeTitle={() => this.changeTitleHandler(car.name)}
-                        />
-                    )
-                })}
+                <button onClick={this.handlerToggleCars}>Toggle cars</button>
+
+                {this.state.showCars
+                    ? this.state.cars.map((car, index) => {
+                        return (
+                            <Car
+                                key={index}
+                                name={car.name}
+                                year={car.year}
+                                onChangeTitle={() => this.changeTitleHandler(car.name)}
+                            />
+                        )
+                    })
+                    : null
+                }
+
             </div>
         )
     }
