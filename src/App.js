@@ -47,13 +47,19 @@ class App extends Component {
                 {this.state.showCars
                     ? this.state.cars.map((car, index) => {
                         return (
-                            <Car
-                                key={index}
-                                name={car.name}
-                                year={car.year}
-                                handlerDeleteCar={this.handlerDeleteCar.bind(this, index)}
-                                handlerChangeName={event => this.handlerChangeName(event.target.value, index)}
-                            />
+                            <div style={{
+                                width: 250,
+                                margin: 'auto',
+                                paddingTop: 20
+                            }}>
+                                <Car
+                                    key={index}
+                                    name={car.name}
+                                    year={car.year}
+                                    handlerDeleteCar={this.handlerDeleteCar.bind(this, index)}
+                                    handlerChangeName={event => this.handlerChangeName(event.target.value, index)}
+                                />
+                            </div>
                         )
                     })
                     : null
