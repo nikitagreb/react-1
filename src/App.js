@@ -4,14 +4,27 @@ import {Component} from 'react'
 
 class App extends Component {
 
-    state = {
-        cars: [
-            {name: 'Ford', year: 2018},
-            {name: 'Mazda', year: 2015},
-            {name: 'Audi', year: 2013},
-        ],
-        pageTitle: "React components",
-        showCars: false
+    constructor(props) {
+        console.log('App constructor')
+        super(props)
+
+        this.state = {
+            cars: [
+                {name: 'Ford', year: 2018},
+                {name: 'Mazda', year: 2015},
+                {name: 'Audi', year: 2013},
+            ],
+            pageTitle: "React components",
+            showCars: false
+        }
+    }
+
+    componentWillMount() {
+        console.log('App componentWillMount')
+    }
+
+    componentDidMount() {
+        console.log('App componentDidMount')
     }
 
     handlerChangeName = (name, index) => {
@@ -35,13 +48,17 @@ class App extends Component {
     }
 
     render() {
+
+        console.log('App render')
+
         const divStyle = {
             textAlign: 'center'
         }
 
         return (
             <div className="App" style={divStyle}>
-                <h1>{this.state.pageTitle}</h1>
+                {/*<h1>{this.state.pageTitle}</h1>*/}
+                <h1>{this.props.title}</h1>
                 <button onClick={this.handlerToggleCars}>Toggle cars</button>
 
                 {this.state.showCars
