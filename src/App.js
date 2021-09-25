@@ -4,14 +4,18 @@ import {Component} from 'react'
 
 class App extends Component {
 
-    state = {
-        cars: [
-            {name: 'Ford', year: 2018},
-            {name: 'Mazda', year: 2015},
-            {name: 'Audi', year: 2013},
-        ],
-        pageTitle: "React components",
-        showCars: false
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            cars: [
+                {name: 'Ford', year: 2018},
+                {name: 'Mazda', year: 2015},
+                {name: 'Audi', year: 2013},
+            ],
+            pageTitle: "React components",
+            showCars: false
+        }
     }
 
     handlerChangeName = (name, index) => {
