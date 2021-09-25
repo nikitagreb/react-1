@@ -47,13 +47,13 @@ class App extends Component {
                 {this.state.showCars
                     ? this.state.cars.map((car, index) => {
                         return (
-                            <div style={{
+                            <div key={index}
+                                style={{
                                 width: 250,
                                 margin: 'auto',
                                 paddingTop: 20
                             }}>
                                 <Car
-                                    key={index}
                                     name={car.name}
                                     year={car.year}
                                     handlerDeleteCar={this.handlerDeleteCar.bind(this, index)}
