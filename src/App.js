@@ -5,6 +5,8 @@ import {Component} from 'react'
 class App extends Component {
 
     constructor(props) {
+
+        console.log('App constructor')
         super(props)
 
         this.state = {
@@ -16,6 +18,14 @@ class App extends Component {
             pageTitle: "React components",
             showCars: false
         }
+    }
+
+    componentWillMount() {
+        console.log('App componentWillMount')
+    }
+
+    componentDidMount() {
+        console.log('App componentDidMount')
     }
 
     handlerChangeName = (name, index) => {
@@ -39,6 +49,9 @@ class App extends Component {
     }
 
     render() {
+
+        console.log('App render')
+
         const divStyle = {
             textAlign: 'center'
         }
