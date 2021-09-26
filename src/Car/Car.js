@@ -33,10 +33,6 @@ class Car extends Component {
 
     render() {
 
-        if (Math.random() > 0.9) {
-            throw new Error('Car random failed!')
-        }
-
         const inputClasses = [classes['input']]
         if (this.props.name !== '') {
             inputClasses.push(classes['green'])
