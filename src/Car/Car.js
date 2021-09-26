@@ -10,9 +10,9 @@ class Car extends Component {
         return nextProps.name.trim() !== this.props.name.trim()
     }
 
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
-    }
+    // componentWillUpdate(nextProps, nextState, nextContext) {
+    //     console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+    // }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
@@ -32,6 +32,11 @@ class Car extends Component {
     }
 
     render() {
+
+        if (Math.random() > 0.9) {
+            throw new Error('Car random failed!')
+        }
+
         const inputClasses = [classes['input']]
         if (this.props.name !== '') {
             inputClasses.push(classes['green'])
