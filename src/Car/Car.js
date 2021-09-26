@@ -4,6 +4,20 @@ import {Component} from 'react'
 import classes from './Car.module.scss'
 
 class Car extends Component {
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('Car shouldComponentUpdate', nextProps, nextState, nextContext)
+        return nextProps.name.trim() !== this.props.name.trim()
+    }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        console.log('Car componentWillUpdate', nextProps, nextState, nextContext)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
+    }
+
     render() {
         const inputClasses = [classes['input']]
         if (this.props.name !== '') {
