@@ -7,8 +7,10 @@ export default class Counter extends Component {
     }
 
     addCounter = () => {
-        this.setState({
-            counter: this.state.counter + 1
+        this.setState(prevState => {
+            return {
+                counter: prevState.counter + 1
+            }
         })
     }
 
@@ -20,11 +22,5 @@ export default class Counter extends Component {
                 <button onClick={() => this.setState({counter: this.state.counter - 1})}>-</button>
             </Auxiliary>
         )
-
-        // return [
-        //     <h2 key={1}>Counter {this.state.counter}</h2>,
-        //     <button key={2} onClick={this.addCounter}>+</button>,
-        //     <button key={3} onClick={() => this.setState({counter: this.state.counter - 1})}>-</button>,
-        // ]
     }
 }
