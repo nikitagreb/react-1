@@ -18,6 +18,10 @@ class Car extends Component {
         console.log('Car componentDidUpdate', prevProps, prevState, snapshot)
     }
 
+    componentWillUnmount() {
+        console.log('Car componentWillUnmount')
+    }
+
     render() {
         const inputClasses = [classes['input']]
         if (this.props.name !== '') {
