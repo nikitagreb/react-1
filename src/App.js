@@ -12,8 +12,8 @@ class App extends Component {
 
         this.state = {
             cars: [
-                // {name: 'Ford', year: 2018},
-                // {name: 'Mazda', year: 2015},
+                {name: 'Ford', year: 2018},
+                {name: 'Mazda', year: 2015},
                 {name: 'Audi', year: 2013}
             ],
             pageTitle: "React components",
@@ -59,7 +59,6 @@ class App extends Component {
 
         return (
             <div className="App" style={divStyle}>
-                {/*<h1>{this.state.pageTitle}</h1>*/}
                 <h1>{this.props.title}</h1>
 
                 <Counter />
