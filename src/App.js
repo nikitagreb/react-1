@@ -77,6 +77,7 @@ class App extends Component {
                             <ErrorBoundary key={index}>
                                 <Car
                                     name={car.name}
+                                    index={index}
                                     year={car.year}
                                     handlerDeleteCar={this.handlerDeleteCar.bind(this, index)}
                                     handlerChangeName={event => this.handlerChangeName(event.target.value, index)}
